@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "bin": {
-    "msback": "./dist/appgenerator.js"
+    "appgenerator": "./bin/appgenerator.js"
   },
   "scripts": {
     "dev": "npx nodemon --exec babel-node ./src/server",
