@@ -1,1 +1,29 @@
-(()=>{"use strict";var e={321:(e,r,o)=>{Object.defineProperty(r,"__esModule",{value:!0}),r.command_version=r.command_create_project=void 0;var a=o(138),n=o(196);r.command_version=a.command_version,r.command_create_project=n.command_create_project},196:(e,r,o)=>{Object.defineProperty(r,"__esModule",{value:!0}),r.command_create_project=async function(){a.default.prompt([{type:"input",name:"name",message:"Ingrese nombre del projecto:",validate:function(e){if(e){const r=n.default.join(c,e.toLowerCase());return!t.default.existsSync(r)||"Ya existe el proyecto"}return"Ingrese un nombre para el proyecto."}},{type:"list",name:"Framework",message:"Seleccione el framework que desee usar:",choices:["Angular","React js"],validate:function(e){return!!e||"Seleccione el framework"}}]).then((async e=>{const r=e.name.toLowerCase(),o=n.default.join(c,r);t.default.existsSync(o)?console.log(`\n\t${red("Ya existe el proyecto")}`):(t.default.mkdirSync(o),await(0,l.executeCommand)(`cd ${o} && ng new ${r} --defaults --routing --style=sass --skip-install --standalone=false --skip-git`))}))},o(206);var a=s(o(937)),n=s(o(928)),t=s(o(896)),l=o(423);function s(e){return e&&e.__esModule?e:{default:e}}const c=n.default.resolve(".")},138:(e,r,o)=>{Object.defineProperty(r,"__esModule",{value:!0}),r.command_version=async function(){console.log(""),(0,n.banner)("APP GENERATOR"),console.log(`\n    APP GENERATOR CLI: ${(0,a.readJSONInternal)("package.json").version}\n    Node: ${process.version}\n    `),(0,t.executeCommand)("ng version")};var a=o(634),n=o(32),t=o(423)},32:(e,r,o)=>{Object.defineProperty(r,"__esModule",{value:!0}),r.banner=void 0,o(206);var a,n=(a=o(679))&&a.__esModule?a:{default:a};r.banner=e=>{console.log(),console.log(blue(n.default.textSync(e,{font:"ANSI Shadow",horizontalLayout:"default",verticalLayout:"default"})))}},206:()=>{const e="[0m",r={BLACK:"[40m",RED:"[41m",GREEN:"[42m",YELLOW:"[43m",BLUE:"[44m",MAGENTA:"[45m",CYAN:"[46m",WHITE:"[47m",END:"[0m"};global.black=r=>`[30m${r}${e}`,global.red=r=>`[31m${r}${e}`,global.green=r=>`[32m${r}${e}`,global.yellow=r=>`[33m${r}${e}`,global.blue=r=>`[34m${r}${e}`,global.magenta=r=>`[35m${r}${e}`,global.cyan=r=>`[36m${r}${e}`,global.white=r=>`[37m${r}${e}`,global.gray=r=>`[39m${r}${e}`,global.Bblack=e=>`${r.BLACK}${e}${r.END}`,global.Bred=e=>`${r.RED}${e}${r.END}`,global.Bgreen=e=>`${r.GREEN}${e}${r.END}`,global.Byellow=e=>`${r.YELLOW}${e}${r.END}`,global.Bblue=e=>`${r.BLUE}${e}${r.END}`,global.Bmagenta=e=>`${r.MAGENTA}${e}${r.END}`,global.Bcyan=e=>`${r.CYAN}${e}${r.END}`,global.Bwhite=e=>`${r.WHITE}${e}${r.END}`,global.Bgray=e=>`${r.GRAY}${e}${r.END}`},423:(e,r,o)=>{Object.defineProperty(r,"__esModule",{value:!0}),r.executeCommand=async function(e){try{const{stdout:r,stderr:o}=await t(`${e}`);o&&console.error(`error: ${o}`),console.log(`${r}`)}catch(e){console.error(`Error al ejecutar el comando: ${e.message}`)}};const{exec:a}=o(317),{promisify:n}=o(23),t=n(a)},634:(e,r,o)=>{Object.defineProperty(r,"__esModule",{value:!0}),r.readJSONInternal=r.readJSON=void 0;var a=l(o(896)),n=l(o(928)),t=l(o(16));function l(e){return e&&e.__esModule?e:{default:e}}const s=n.default.resolve("."),c=n.default.join(n.default.dirname(t.default.fileURLToPath("file:///C:/Users/gerson.ramos_devsu/Desktop/repo/appgenerator/appgenerator-cli/build/utils/read.js")),"..","..");r.readJSON=(e,r=null)=>{try{const o=a.default.readFileSync(n.default.join(null===r?s:r,e),"utf-8");return JSON.parse(o)}catch(e){return null}},r.readJSONInternal=e=>{try{const r=a.default.readFileSync(n.default.join(c,e),"utf-8");return JSON.parse(r)}catch(e){return null}}},858:e=>{e.exports=require("commander")},679:e=>{e.exports=require("figlet")},937:e=>{e.exports=require("inquirer")},317:e=>{e.exports=require("child_process")},896:e=>{e.exports=require("fs")},928:e=>{e.exports=require("path")},16:e=>{e.exports=require("url")},23:e=>{e.exports=require("util")}},r={};function o(a){var n=r[a];if(void 0!==n)return n.exports;var t=r[a]={exports:{}};return e[a](t,t.exports,o),t.exports}var a=o(858),n=o(634),t=o(321);a.program.version((0,n.readJSONInternal)("package.json").version),a.program.command("version").description("Mostrar la versión del cliente").action(t.command_version),a.program.command("new").description("Crear un nuevo proyecto").action(t.command_create_project),a.program.parse(process.argv)})();
+"use strict";
+
+var _commander = require("commander");
+var _read = require("./utils/read.js");
+var _index = require("./commands/index.js");
+_commander.program.version((0, _read.readJSONInternal)('package.json').version);
+_commander.program.command('version').description('Mostrar la versión del cliente').action(_index.command_version);
+_commander.program.command('new').description('Crear un nuevo proyecto').action(_index.command_create_project);
+
+/*program
+    .command('service')
+    .description('Crear un nuevo servicio')
+    .action(command_create_service)
+
+program
+    .command('api')
+    .description('Crear una nueva api')
+    .option('-s, --service <value>', 'Servicio a generar la api')
+    .action(command_create_api)
+
+program
+    .command('controller')
+    .description('Crear un nuevo controlador')
+    .option('-s, --service <value>', 'Servicio a generar el controlador')
+    .option('-a, --api <value>', 'API a generar el controlador')
+    .action(command_create_controller)*/
+
+_commander.program.parse(process.argv);
+//# sourceMappingURL=appgenerator.js.map
