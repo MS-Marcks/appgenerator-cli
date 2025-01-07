@@ -1,10 +1,11 @@
 import fs from 'fs';
 import path from "path";
-import url from 'url';
+//import url from 'url';
 
 const baseDir = path.resolve(".");
-const rootDirectory = path.join(path.dirname(url.fileURLToPath(import.meta.url)), "..", "..");
+const rootDirectory = path.join(__dirname, "..", "..");
 
+console.log(rootDirectory)
 export const readJSON = (filePath, root = null) => {
     try {
         const data = fs.readFileSync(path.join((root === null) ? baseDir : root, filePath), 'utf-8');
