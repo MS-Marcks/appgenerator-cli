@@ -19,10 +19,11 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "cli-spinners": "^3.2.0",
-    "commander": "^13.0.0",
-    "figlet": "^1.8.0",
-    "inquirer": "^12.3.0"
+    "cli-spinners": "2.9.0",
+    "commander": "11.0.0",
+    "figlet": "1.6.0",
+    "inquirer": "9.2.7",
+    "json-format": "1.0.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.26.4",
