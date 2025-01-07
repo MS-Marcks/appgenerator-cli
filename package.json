@@ -4,6 +4,7 @@
   "description": "",
   "type": "module",
   "main": "./src/index.js",
+
   "bin": {
     "appgenerator": "./bin/appgenerator.js"
   },
