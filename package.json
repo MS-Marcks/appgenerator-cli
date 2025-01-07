@@ -6,13 +6,6 @@
   "bin": {
     "appgenerator": "./bin/appgenerator"
   },
-  "scripts": {
-    "dev": "npx nodemon --exec babel-node ./src/server",
-    "clean": "rm -rf build && mkdir build",
-    "build-babel": "babel -d ./dist src -s -w",
-    "build": "npm run build-babel",
-    "start": "npm run build"
-  },
   "keywords": [],
   "author": "",
   "license": "ISC",
