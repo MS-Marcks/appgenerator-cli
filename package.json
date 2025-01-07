@@ -1,40 +1,23 @@
 {
   "name": "appgenerator",
-  "version": "1.0.0",
-  "main": "index.js",
+  "version": "0.0.2",
+  "description": "",
+  "type": "module",
+  "main": "./src/index.js",
   "bin": {
     "appgenerator": "./bin/appgenerator.js"
   },
   "scripts": {
-    "dev": "npx nodemon --exec babel-node ./src/server",
-    "clean": "rm -rf build && mkdir build",
-    "build-babel": "babel -d ./build src -s -w",
-    "build": "npm run build-babel",
-    "start": "npm-run-all --parallel build webpack:build",
-    "webpack:build": "webpack --mode production",
-    "webpack:dev": "webpack --mode development"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
   "dependencies": {
-    "cli-spinners": "2.9.0",
-    "commander": "11.0.0",
-    "figlet": "1.6.0",
-    "inquirer": "9.2.7",
-    "json-format": "1.0.1"
-  },
-  "devDependencies": {
-    "@babel/cli": "^7.26.4",
-    "@babel/core": "^7.26.0",
-    "@babel/node": "^7.26.0",
-    "@babel/preset-env": "^7.26.0",
-    "@babel/register": "^7.25.9",
-    "npm-run-all": "^4.1.5",
-    "path-browserify": "^1.0.1",
-    "webpack": "^5.97.1",
-    "webpack-cli": "^6.0.1",
-    "webpack-node-externals": "^3.0.0"
+    "cli-spinners": "^2.9.0",
+    "commander": "^11.0.0",
+    "figlet": "^1.6.0",
+    "inquirer": "^9.2.7",
+    "json-format": "^1.0.1"
   }
 }
